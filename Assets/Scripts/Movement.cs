@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public Animator animator;
+    public Camera mainCamera;
     private Rigidbody2D myRigidbody2D;
     private Collisions collision;              //referencing the script for the collisions
 
@@ -53,6 +54,7 @@ public class Movement : MonoBehaviour
         myRigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         collision = GetComponent<Collisions>();
+        mainCamera = FindObjectOfType<Camera>();
     }
 
     private void Update()
@@ -230,7 +232,9 @@ public class Movement : MonoBehaviour
 
     private void Dash(float x)
     {
-       myRigidbody2D.velocity = new Vector2(transform.localScale.x * dashForce, 0);
+        mainCamera.GetComponent<CameraController>().ShakeCamera();  //not great, just experimenting with cam Shake
+
+        myRigidbody2D.velocity = new Vector2(transform.localScale.x * dashForce, 0);
 
         StartCoroutine(DashCooling());
     }
