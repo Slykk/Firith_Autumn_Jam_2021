@@ -88,7 +88,7 @@ public class Movement : MonoBehaviour
               }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton1)) // I used using joystick buttons aswell because personally i like testing with a controller
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton1)) // I AM using joystick buttons as well because personally i like testing with a controller too
 
         { jump = true;
           maxVelocity = 0; }
